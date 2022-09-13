@@ -3,10 +3,10 @@
 
 <body>
 
-<h2>Spring MVC Demo - Home Page</h2>
+<h2>Spring MVC Demo - Student Registration Page</h2>
 
 <hr>
-<a href="showForm">Hello Word form</a>
+<a href="student/showForm">Student form</a>
 
 </body>
 
