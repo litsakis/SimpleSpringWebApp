@@ -1,6 +1,9 @@
 package com.luv2code.springdemo.mvc;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -21,5 +24,28 @@ public class HelloWordController {
 		
 		return "helloworld";
 	}
+
+	//add a new controller method to read form data
+	// add data to the model
+	
+	@RequestMapping("/showFormVersion2")	
+	public String readcontroller(HttpServletRequest request, Model model) {
+		
+		//read the request parameter from the HTML
+		String theName=request.getParameter("studentName");
+		
+		//convert the data to caps
+		theName = theName.toUpperCase();
+		
+		//create the message
+		String result = "Hi there!" + theName;
+		
+		//add message to model
+		model.addAttribute("message",result);
+		
+		return "helloworld";
+	}
+	
+	
 	
 }
