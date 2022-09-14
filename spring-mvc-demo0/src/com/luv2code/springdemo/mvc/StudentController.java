@@ -8,24 +8,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/student")
 public class StudentController {
-	
+
 	@RequestMapping("/showForm")
 	public String showForm(Model theModel) {
-		// create new student object
+		
+		// create a student object
 		Student theStudent = new Student();
-		//add student object to the model
-		theModel.addAttribute("student",theStudent);
+		
+		// add student object to the model
+		theModel.addAttribute("student", theStudent);
+		
 		return "student-form";
-		
 	}
+	
 	@RequestMapping("/processForm")
-	public String ProcessForm(@ModelAttribute("student") Student theStudent)
-	{
+	public String processForm(@ModelAttribute("student") Student theStudent) {
 		
-		//log the input data
+		// log the input data
+		System.out.println("theStudent: " + theStudent.getFirstName()
+							+ " " + theStudent.getLastName());
 		
-		System.out.println("the student :" + theStudent.getFirstName() + " "
-				+ theStudent.getLastName());
 		return "student-confirmation";
 	}
+	
 }
+
+
+
+
+
+
+
+
+
